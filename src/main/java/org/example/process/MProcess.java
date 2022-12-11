@@ -1,5 +1,8 @@
 package org.example.process;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class MProcess {
     private String processName;
     private double arrivalTime;
@@ -20,13 +23,8 @@ public class MProcess {
     private double turnAroundTime;
     private double waitTime;
     private double realTimeBurstTime;
-
-    private double quantum;
-    private double realTimeQuantum;
-
-
-
-
+    List<Double> quantamList;
+    int id;
     public double getTurnAroundTime() {
         return turnAroundTime;
     }
@@ -51,13 +49,14 @@ public class MProcess {
         this.realTimeBurstTime = realTimeBurstTime;
     }
 
-    public MProcess(String processName, double arrivalTime, double burstTime, double processPriority) {
+    public MProcess(String processName, double arrivalTime, double burstTime, double processPriority, double quantam) {
         this.processName = processName;
         this.arrivalTime = arrivalTime;
         this.burstTime = burstTime;
         this.processPriority = processPriority;
+        quantamList = new ArrayList<>();
+        setQuantum(quantam);
     }
-    public MProcess(){}
 
     @Override
     public String toString() {
@@ -66,8 +65,7 @@ public class MProcess {
                 ", arrivalTime=" + arrivalTime +
                 ", burstTime=" + burstTime +
                 ", processPriority=" + processPriority +
-                ", quantum=" + quantum +
-                ", realTimeQuantum=" + realTimeQuantum +
+                ", realTimeQuantum=" + getRealTimeQuantum() +
                 '}';
     }
 
@@ -105,18 +103,14 @@ public class MProcess {
     }
 
     public double getQuantum() {
-        return quantum;
+        return quantamList.get(quantamList.size() - 1);
     }
 
     public void setQuantum(double quantum) {
-        this.quantum = quantum;
+        quantamList.add(quantum);
     }
 
     public double getRealTimeQuantum() {
-        return realTimeQuantum;
-    }
-
-    public void setRealTimeQuantum(double realTimeQuantum) {
-        this.realTimeQuantum = realTimeQuantum;
+        return quantamList.get(0);
     }
 }

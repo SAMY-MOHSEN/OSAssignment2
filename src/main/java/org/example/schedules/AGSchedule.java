@@ -18,13 +18,16 @@ public class AGSchedule extends ScheduleTechnique {
         this.processes = processes;
     }
     public boolean getFromProcesses(){
+        if(i==processes.size())return false;
+        head = processes.get(i++);
+        getFromProcesses(head.getArrivalTime());
+        return true;
+    }
+    public boolean getFromProcesses(double time){
         boolean flag = false;
         if(i==processes.size())return false;
-
-        head = processes.get(i);
-        i++;
         while(i<processes.size()){
-            if(processes.get(i).getArrivalTime() == head.getArrivalTime()){
+            if(processes.get(i).getArrivalTime() <= time){
                 readyQueue.add(processes.get(i++));
                 flag = true;
             }else{
@@ -56,8 +59,20 @@ public class AGSchedule extends ScheduleTechnique {
             assert head != null;
             taken = Math.ceil(head.getQuantum()*0.25);
             head.setQuantum(head.getQuantum()-taken);
-            time+=taken;
-            currentCondition++;
+            if(head.getBurstTime() - taken < 0){
+                time += head.getBurstTime();
+                head.setBurstTime(0);
+                head.setQuantum(0);
+                readyQueue.remove(head);
+                head = null;
+                time += contextSwitching;
+                getFromProcesses(time);
+            }
+            else{
+                head.setBurstTime(head.getBurstTime() - taken);
+                time+=taken;
+                getFromProcesses(time);
+            }
         }
     }
 }
