@@ -31,7 +31,7 @@ public class Main{
             System.out.print("Enter process #"+i+" Process Priority: ");
             double priorityTime = scanner.nextDouble();
             scanner.nextLine();
-            MProcess tmpProcess = new MProcess(name,arrivalTime,burstTime,priorityTime);
+            MProcess tmpProcess = new MProcess(name,arrivalTime,burstTime,priorityTime, roundRobinTimeQuantum);
             tmpProcess.setQuantum(roundRobinTimeQuantum);
             processes.add(tmpProcess);
             System.out.println("..........");
