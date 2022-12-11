@@ -5,20 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="227e2fff-c1ee-455d-baef-5186a304f115" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/jpa-buddy.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/Main.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/process/MProcess.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/schedules/AGSchedule.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/schedules/PreemptiveSchedule.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/schedules/RoundRobinSchedule.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/schedules/SJFTSchedule.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/schedules/ScheduleTechnique.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/process/MProcess.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/process/MProcess.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/schedules/PreemptiveSchedule.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/schedules/PreemptiveSchedule.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -86,7 +76,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1670696750741</updated>
-      <workItem from="1670696752787" duration="12056000" />
+      <workItem from="1670696752787" duration="21002000" />
     </task>
     <servers />
   </component>

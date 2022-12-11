@@ -2,10 +2,36 @@ package org.example.process;
 
 public class MProcess {
     private String processName;
-    private double arrivalTime;
-    private double burstTime;
-    private double processPriority;
+    private int arrivalTime;
+    private int endTime;
 
+    @Override
+    public String toString() {
+        return "MProcess{" +
+                "processName='" + processName + '\'' +
+                ", arrivalTime=" + arrivalTime +
+                ", endTime=" + endTime +
+                ", burstTime=" + burstTime +
+                ", processPriority=" + processPriority +
+                ", inQueue=" + inQueue +
+                ", turnAroundTime=" + turnAroundTime +
+                ", waitTime=" + waitTime +
+                ", realTimeBurstTime=" + realTimeBurstTime +
+                ", quantum=" + quantum +
+                ", realTimeQuantum=" + realTimeQuantum +
+                '}';
+    }
+
+    public int getEndTime() {
+        return endTime;
+    }
+
+    public void setEndTime(int endTime) {
+        this.endTime = endTime;
+    }
+
+    private int burstTime;
+    private double processPriority;
     private boolean inQueue = false;
 
     public boolean isInQueue() {
@@ -19,7 +45,7 @@ public class MProcess {
     // calculate
     private double turnAroundTime;
     private double waitTime;
-    private double realTimeBurstTime;
+    public double realTimeBurstTime;
 
     private double quantum;
     private double realTimeQuantum;
@@ -51,25 +77,13 @@ public class MProcess {
         this.realTimeBurstTime = realTimeBurstTime;
     }
 
-    public MProcess(String processName, double arrivalTime, double burstTime, double processPriority) {
+    public MProcess(String processName, int arrivalTime, int burstTime, double processPriority) {
         this.processName = processName;
         this.arrivalTime = arrivalTime;
         this.burstTime = burstTime;
         this.processPriority = processPriority;
     }
     public MProcess(){}
-
-    @Override
-    public String toString() {
-        return "MProcess{" +
-                "processName='" + processName + '\'' +
-                ", arrivalTime=" + arrivalTime +
-                ", burstTime=" + burstTime +
-                ", processPriority=" + processPriority +
-                ", quantum=" + quantum +
-                ", realTimeQuantum=" + realTimeQuantum +
-                '}';
-    }
 
 
     public String getProcessName() {
@@ -80,19 +94,19 @@ public class MProcess {
         this.processName = processName;
     }
 
-    public double getArrivalTime() {
+    public int getArrivalTime() {
         return arrivalTime;
     }
 
-    public void setArrivalTime(double arrivalTime) {
+    public void setArrivalTime(int arrivalTime) {
         this.arrivalTime = arrivalTime;
     }
 
-    public double getBurstTime() {
+    public int getBurstTime() {
         return burstTime;
     }
 
-    public void setBurstTime(double burstTime) {
+    public void setBurstTime(int burstTime) {
         this.burstTime = burstTime;
     }
 
