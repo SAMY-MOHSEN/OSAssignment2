@@ -24,6 +24,12 @@ public class PreemptiveSchedule extends ScheduleTechnique{
             }
         }
         readyQueue.sort((o1, o2) -> (int) (o1.getProcessPriority() - o2.getProcessPriority()));
+        //aging 0..10
+            var tmp_process = readyQueue.get(readyQueue.size()-1);
+            if(tmp_process.getProcessPriority()>0){
+                tmp_process.setProcessPriority(tmp_process.getProcessPriority()-.5);
+            }
+        //aging 0..10
     }
 
     public boolean allFinished(){
@@ -39,15 +45,17 @@ public class PreemptiveSchedule extends ScheduleTechnique{
         processes.sort((o1, o2) -> (int) (o1.getArrivalTime() - o2.getArrivalTime()));
             while(!allFinished()){
                 time++;
+                int next_second = time;
+                next_second++;
                 addToReadyQueue(time);
                 head = readyQueue.get(0);
                 head.realTimeBurstTime++;
                 if(head.realTimeBurstTime >= head.getBurstTime()){
-                    readyQueue.get(0).setEndTime(time);
+                    readyQueue.get(0).setEndTime(next_second);
                     int burstTime = readyQueue.get(0).getBurstTime();
                     int arrivalTime = readyQueue.get(0).getArrivalTime();
-                    readyQueue.get(0).setWaitTime(time-arrivalTime-burstTime);
-                    readyQueue.get(0).setTurnAroundTime(time-arrivalTime+contextSwitching);
+                    readyQueue.get(0).setWaitTime(next_second-arrivalTime-burstTime);
+                    readyQueue.get(0).setTurnAroundTime(next_second-arrivalTime+contextSwitching);
                     readyQueue.remove(0);
                 }
 
@@ -58,7 +66,7 @@ public class PreemptiveSchedule extends ScheduleTechnique{
                     executionOrder.push(head);
                 }
             }
-            // this comment is to show the ending time.
+//             this comment is to show the ending time.
 //            for(var tmp :processes){
 //                System.out.println(tmp.getProcessName()+" "+tmp.getEndTime());
 //            }
@@ -88,31 +96,5 @@ public class PreemptiveSchedule extends ScheduleTechnique{
             System.out.println(averageWaitingTime/processes.size());
             System.out.println("Average turn around time:- ");
             System.out.println(averageTurnAroundTime/processes.size());
-
         }
     }
-
-/*
-    P1
-    0
-    10
-    3
-    P2
-    1
-    1
-    1
-    P3
-    2
-    2
-    4
-    P4
-    3
-    1
-    5
-    P5
-    4
-    5
-    2
-
-
- */
