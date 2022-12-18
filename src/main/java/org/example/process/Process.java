@@ -4,6 +4,7 @@ class Process
     String processName; // Process Name
     double burstTime; // Burst Time
     double arrivalTime; // Arrival Time
+    private int endTime;
 
     public Process(String processName, double burstTime, double arrivalTime) {
         this.processName = processName;
@@ -29,6 +30,10 @@ class Process
     }
     public void setArrivalTime(double arrivalTime) {
         this.arrivalTime = arrivalTime;
+    }
+
+    public void setEndTime(int next_second) {
+        endTime = next_second;
     }
 }
 

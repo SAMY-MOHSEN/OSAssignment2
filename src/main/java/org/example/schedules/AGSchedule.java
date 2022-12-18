@@ -1,10 +1,9 @@
 package org.example.schedules;
 
 import org.example.process.MProcess;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.Stack;
+
+import java.util.*;
+
 /*4
 0
 1
@@ -34,12 +33,12 @@ public class AGSchedule extends ScheduleTechnique {
     private double time;
     private ArrayList<MProcess>readyQueue = new ArrayList<>();
     private int contextSwitching;
-    private ArrayList<MProcess>processes;
+    private List<MProcess>processes;
     private int i = 0;
-    private final ArrayList<MProcess> priorityQueue = new ArrayList<>();
-    private final ArrayList<MProcess> burstTimeQueue = new ArrayList<>();
+    private final List<MProcess> priorityQueue = new ArrayList<>();
+    private final List<MProcess> burstTimeQueue = new ArrayList<>();
     private final Stack<MProcess> executionOrder = new Stack<>();
-    public AGSchedule(ArrayList<MProcess> processes, int contextSwitching) {
+    public AGSchedule(List<MProcess> processes, int contextSwitching) {
         super();
         this.contextSwitching = contextSwitching;
         this.processes = processes;

@@ -4,13 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="227e2fff-c1ee-455d-baef-5186a304f115" name="Changes" comment="ahmed">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/process/Process.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/process/SJFTSchedule.java" afterDir="false" />
+    <list default="true" id="600f2696-25a4-434e-9b1e-b4777970b9da" name="Changes" comment="ahmed">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/process/MProcess.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/process/MProcess.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/process/Process.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/process/Process.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/schedules/AGSchedule.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/schedules/AGSchedule.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/schedules/PreemptiveSchedule.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/schedules/PreemptiveSchedule.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/schedules/RoundRobinSchedule.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/schedules/RoundRobinSchedule.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/schedules/SJFTSchedule.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/schedules/SJFTSchedule.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -131,28 +132,28 @@
       <breakpoints>
         <line-breakpoint type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/org/example/schedules/AGSchedule.java</url>
-          <line>151</line>
+          <line>150</line>
           <option name="timeStamp" value="3" />
         </line-breakpoint>
         <line-breakpoint type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/org/example/schedules/AGSchedule.java</url>
-          <line>141</line>
+          <line>140</line>
           <option name="timeStamp" value="5" />
         </line-breakpoint>
         <line-breakpoint type="java-line">
           <condition expression="(head.getQuantum()-taken) &lt; 0" language="JAVA" />
           <url>file://$PROJECT_DIR$/src/main/java/org/example/schedules/AGSchedule.java</url>
-          <line>103</line>
+          <line>102</line>
           <option name="timeStamp" value="12" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/org/example/schedules/AGSchedule.java</url>
-          <line>88</line>
+          <line>87</line>
           <option name="timeStamp" value="19" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/org/example/schedules/AGSchedule.java</url>
-          <line>74</line>
+          <line>73</line>
           <option name="timeStamp" value="20" />
         </line-breakpoint>
       </breakpoints>
