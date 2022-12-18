@@ -3,10 +3,7 @@ package org.example.process;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MProcess {
-    private String processName;
-    private double arrivalTime;
-    private double burstTime;
+public class MProcess extends Process{
     private double processPriority;
 
     private boolean inQueue = false;
@@ -25,6 +22,13 @@ public class MProcess {
     private double realTimeBurstTime;
     List<Double> quantamList;
     int id;
+    public MProcess(String processName, double arrivalTime, double burstTime, double processPriority, double quantam) {
+        super(processName, burstTime, arrivalTime);
+        this.realTimeBurstTime = burstTime;
+        this.processPriority = processPriority;
+        quantamList = new ArrayList<>();
+        setQuantum(quantam);
+    }
     public double getTurnAroundTime() {
         return turnAroundTime;
     }
@@ -47,15 +51,6 @@ public class MProcess {
 
     public void setRealTimeBurstTime(double realTimeBurstTime) {
         this.realTimeBurstTime = realTimeBurstTime;
-    }
-
-    public MProcess(String processName, double arrivalTime, double burstTime, double processPriority, double quantam) {
-        this.processName = processName;
-        this.arrivalTime = arrivalTime;
-        this.burstTime = burstTime;
-        this.processPriority = processPriority;
-        quantamList = new ArrayList<>();
-        setQuantum(quantam);
     }
 
     @Override
@@ -112,5 +107,13 @@ public class MProcess {
 
     public double getRealTimeQuantum() {
         return quantamList.get(0);
+    }
+
+    public void setRealTimeQuantum(double quantum) {
+        quantamList.set(0, quantum);
+    }
+
+    public List<Double> getQuantamList() {
+        return quantamList;
     }
 }

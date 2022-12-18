@@ -4,8 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="227e2fff-c1ee-455d-baef-5186a304f115" name="Changes" comment="">
+    <list default="true" id="227e2fff-c1ee-455d-baef-5186a304f115" name="Changes" comment="ahmed">
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/process/Process.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/process/SJFTSchedule.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/process/MProcess.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/process/MProcess.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/schedules/AGSchedule.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/schedules/AGSchedule.java" afterDir="false" />
     </list>
@@ -52,6 +55,11 @@
     &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;
   }
 }</component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\programming\Java\OSAssignment2\src\main\java\org\example\process" />
+    </key>
+  </component>
   <component name="RunManager">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="org.example.Main" />
@@ -83,6 +91,21 @@
       <updated>1670696750741</updated>
       <workItem from="1670696752787" duration="12056000" />
     </task>
+    <task id="LOCAL-00001" summary="ahmed">
+      <created>1670741771053</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1670741771053</updated>
+    </task>
+    <task id="LOCAL-00002" summary="ahmed">
+      <created>1670741783485</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1670741783485</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -98,5 +121,49 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="ahmed" />
+    <option name="LAST_COMMIT_MESSAGE" value="ahmed" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/example/schedules/AGSchedule.java</url>
+          <line>151</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+        <line-breakpoint type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/example/schedules/AGSchedule.java</url>
+          <line>141</line>
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+        <line-breakpoint type="java-line">
+          <condition expression="(head.getQuantum()-taken) &lt; 0" language="JAVA" />
+          <url>file://$PROJECT_DIR$/src/main/java/org/example/schedules/AGSchedule.java</url>
+          <line>103</line>
+          <option name="timeStamp" value="12" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/example/schedules/AGSchedule.java</url>
+          <line>88</line>
+          <option name="timeStamp" value="19" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/example/schedules/AGSchedule.java</url>
+          <line>74</line>
+          <option name="timeStamp" value="20" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+    <watches-manager>
+      <configuration name="Application">
+        <watch expression="time" language="JAVA" />
+        <watch expression="time" language="JAVA" />
+        <watch expression="processes" language="JAVA" />
+        <watch expression="head.getRealTimeQuantum()" language="JAVA" />
+      </configuration>
+    </watches-manager>
   </component>
 </project>

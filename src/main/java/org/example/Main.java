@@ -14,8 +14,8 @@ public class Main{
         System.out.println();
         System.out.print("Enter number of process: ");
         int numberOfProcess = scanner.nextInt();
-        System.out.print("Enter Round Robin Time Quantum: ");
-        int roundRobinTimeQuantum = scanner.nextInt();
+/*        System.out.print("Enter Round Robin Time Quantum: ");
+        int roundRobinTimeQuantum = scanner.nextInt();*/
         System.out.print("Enter Context Switching Time: ");
         int contextSwitching = scanner.nextInt();
         scanner.nextLine();
@@ -30,9 +30,10 @@ public class Main{
             double burstTime = scanner.nextDouble();
             System.out.print("Enter process #"+i+" Process Priority: ");
             double priorityTime = scanner.nextDouble();
+            System.out.print("Enter Round Robin Time Quantum: ");
+            int roundRobinTimeQuantum = scanner.nextInt();
             scanner.nextLine();
             MProcess tmpProcess = new MProcess(name,arrivalTime,burstTime,priorityTime, roundRobinTimeQuantum);
-            tmpProcess.setQuantum(roundRobinTimeQuantum);
             processes.add(tmpProcess);
             System.out.println("..........");
         }
