@@ -6,13 +6,13 @@ import java.util.List;
 
 public class SJFTSchedule extends ScheduleTechnique {
     private int n;
-    private Process[] pro;
+    private MProcess[] pro;
     private int contextSwitch;
 
     public SJFTSchedule(List<MProcess> processes, int contextSwitching) {
-        pro = processes.toArray(pro);
+        pro = processes.stream().toArray(MProcess[] :: new);
         this.n = processes.size();
-        this.contextSwitch = contextSwitch;
+        this.contextSwitch = contextSwitching;
     }
     @Override
     public void run() {
@@ -25,11 +25,11 @@ public class SJFTSchedule extends ScheduleTechnique {
         double[] remainingTime = new double[n];
 
         for (int i = 0; i < n; i++)
-            remainingTime[i] = pro[i].burstTime;
+            remainingTime[i] = pro[i].getBurstTime();
 
         int allProcesses = 0;
         double time = 0;
-        double minimumBurst = 100;
+        double minimumBurst = Double.MAX_VALUE;
         int lowestProcess = 0;
         double finishTime;
         boolean check = false;
@@ -40,7 +40,7 @@ public class SJFTSchedule extends ScheduleTechnique {
         while (allProcesses != n) {
 
             for (int j = 0; j < n; j++) {
-                if ((pro[j].arrivalTime <= time) && (remainingTime[j] < minimumBurst) && remainingTime[j] > 0) {
+                if ((pro[j].getArrivalTime() <= time) && (remainingTime[j] < minimumBurst) && remainingTime[j] > 0) {
                     minimumBurst = remainingTime[j];
                     lowestProcess = j;
                     check = true;
@@ -61,8 +61,8 @@ public class SJFTSchedule extends ScheduleTechnique {
             }
             String processExecuted;
             String lastProcessesExecuted;
-            processExecuted = pro[lowestProcess].processName;
-            lastProcessesExecuted = pro[lastLowestProcess].processName;
+            processExecuted = pro[lowestProcess].getProcessName();
+            lastProcessesExecuted = pro[lastLowestProcess].getProcessName();
             if (!processExecuted.equals(lastProcessesExecuted)) {
                 System.out.println("Executed: " + processExecuted);
                 time = time + contextSwitch;
@@ -83,7 +83,7 @@ public class SJFTSchedule extends ScheduleTechnique {
 
                 finishTime = time + 1;
 
-                waitingTime[lowestProcess] = finishTime - pro[lowestProcess].burstTime - pro[lowestProcess].arrivalTime;
+                waitingTime[lowestProcess] = finishTime - pro[lowestProcess].getBurstTime() - pro[lowestProcess].getArrivalTime();
 
                 if (waitingTime[lowestProcess] < 0)
                     waitingTime[lowestProcess] = 0;
@@ -93,7 +93,7 @@ public class SJFTSchedule extends ScheduleTechnique {
 
         // Calculating turn around time
         for (int i = 0; i < n; i++)
-            turnaroundTime[i] = pro[i].burstTime + waitingTime[i];
+            turnaroundTime[i] = pro[i].getBurstTime() + waitingTime[i];
 
         // Display
         System.out.println("Processes " + " Burst time " + " Arrival time " + " Waiting time " + " Turn around time");
@@ -101,10 +101,40 @@ public class SJFTSchedule extends ScheduleTechnique {
         for (int i = 0; i < n; i++) {
             totalWaitingTime = totalWaitingTime + waitingTime[i];
             totalTurnaroundTime = totalTurnaroundTime + turnaroundTime[i];
-            System.out.println("\t" + pro[i].processName + "\t\t\t" + pro[i].burstTime + "\t\t\t" + pro[i].arrivalTime + "\t\t\t " + waitingTime[i] + "\t\t\t\t" + turnaroundTime[i]);
+            System.out.println("\t" + pro[i].getProcessName() + "\t\t\t" + pro[i].getBurstTime() + "\t\t\t" + pro[i].getArrivalTime() + "\t\t\t " + waitingTime[i] + "\t\t\t\t" + turnaroundTime[i]);
         }
 
         System.out.println("Average waiting time = " + (float) totalWaitingTime / (float) n);
         System.out.println("Average turn around time = " + (float) totalTurnaroundTime / (float) n);
     }
 }
+
+/*
+5
+0
+P1
+2
+6
+0
+0
+P2
+5
+2
+0
+0
+P3
+1
+8
+0
+0
+P4
+0
+3
+0
+0
+P5
+4
+4
+0
+0
+*/

@@ -16,8 +16,8 @@ public class Main{
         System.out.println();
         System.out.print("Enter number of process: ");
         int numberOfProcess = scanner.nextInt();
-/*        System.out.print("Enter Round Robin Time Quantum: ");
-        int roundRobinTimeQuantum = scanner.nextInt();*/
+        System.out.print("Enter Round Robin Time Quantum: ");
+        int roundRobinTimeQuantum = scanner.nextInt();
         System.out.print("Enter Context Switching Time: ");
         int contextSwitching = scanner.nextInt();
         scanner.nextLine();
@@ -32,10 +32,10 @@ public class Main{
             double burstTime = scanner.nextDouble();
             System.out.print("Enter process #"+i+" Process Priority: ");
             double priorityTime = scanner.nextDouble();
-            System.out.print("Enter Round Robin Time Quantum: ");
-            int roundRobinTimeQuantum = scanner.nextInt();
+            System.out.print("Enter Time Quantum: ");
+            double quantum = scanner.nextDouble();
             scanner.nextLine();
-            MProcess tmpProcess = new MProcess(name,arrivalTime,burstTime,priorityTime, roundRobinTimeQuantum);
+            MProcess tmpProcess = new MProcess(name,arrivalTime,burstTime,priorityTime, quantum);
             processes1.add(tmpProcess);
             System.out.println("..........");
         }
@@ -65,7 +65,7 @@ public class Main{
             }
             switch (choice){
                 case 1 -> technique = new SJFTSchedule(processes, contextSwitching);
-                case 2 -> technique = new RoundRobinSchedule(processes,contextSwitching);
+                case 2 -> technique = new RoundRobinSchedule(processes,contextSwitching, roundRobinTimeQuantum);
                 case 3 -> technique = new PreemptiveSchedule(processes,contextSwitching);
                 case 4 -> technique = new AGSchedule(processes,contextSwitching);
                 case 0 -> {

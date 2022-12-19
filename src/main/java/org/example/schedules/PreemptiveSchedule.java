@@ -26,10 +26,10 @@ public class PreemptiveSchedule extends ScheduleTechnique{
         }
         readyQueue.sort((o1, o2) -> (int) (o1.getProcessPriority() - o2.getProcessPriority()));
         //aging 0..10
-        var tmp_process = readyQueue.get(readyQueue.size()-1);
-        if(tmp_process.getProcessPriority()>0){
-            tmp_process.setProcessPriority(tmp_process.getProcessPriority()-.5);
-        }
+//        var tmp_process = readyQueue.get(readyQueue.size()-1);
+//        if(tmp_process.getProcessPriority()>0){
+//            tmp_process.setProcessPriority(tmp_process.getProcessPriority()-.5);
+//        }
         //aging 0..10
     }
 
@@ -47,12 +47,13 @@ public class PreemptiveSchedule extends ScheduleTechnique{
         while(!allFinished()){
             time++;
             int next_second = time;
-            next_second++;
+
             addToReadyQueue(time);
+            if(readyQueue.size()==0)continue;
             head = readyQueue.get(0);
             head.setRealTimeBurstTime(head.getRealTimeBurstTime() + 1);
             if(head.getRealTimeBurstTime() >= head.getBurstTime()){
-                readyQueue.get(0).setEndTime(next_second);
+                readyQueue.get(0).setEndTime(++next_second);
                 double burstTime = readyQueue.get(0).getBurstTime();
                 double arrivalTime = readyQueue.get(0).getArrivalTime();
                 readyQueue.get(0).setWaitTime(next_second-arrivalTime-burstTime);

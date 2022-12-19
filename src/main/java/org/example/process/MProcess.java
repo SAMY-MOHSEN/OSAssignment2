@@ -3,11 +3,18 @@ package org.example.process;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MProcess extends Process{
+public class MProcess {
+    private String processName; // Process Name
+    private double burstTime; // Burst Time
+    private double arrivalTime; // Arrival Time
+    private int endTime;
     private double processPriority;
 
     private boolean inQueue = false;
-
+    private double turnAroundTime;
+    private double waitTime;
+    private double realTimeBurstTime;
+    List<Double> quantamList;
     public boolean isInQueue() {
         return inQueue;
     }
@@ -17,17 +24,19 @@ public class MProcess extends Process{
     }
 
     // calculate
-    private double turnAroundTime;
-    private double waitTime;
-    private double realTimeBurstTime;
-    List<Double> quantamList;
-    int id;
     public MProcess(String processName, double arrivalTime, double burstTime, double processPriority, double quantam) {
-        super(processName, burstTime, arrivalTime);
+        this.processName = processName;
+        this.arrivalTime = arrivalTime;
+        this.realTimeBurstTime = 0;
+        this.burstTime = burstTime;
         this.realTimeBurstTime = burstTime;
         this.processPriority = processPriority;
         quantamList = new ArrayList<>();
         setQuantum(quantam);
+    }
+
+    public void setEndTime(int next_second) {
+        endTime = next_second;
     }
     public double getTurnAroundTime() {
         return turnAroundTime;

@@ -4,7 +4,9 @@ import org.example.process.MProcess;
 
 import java.util.*;
 
-/*4
+/*
+4
+0
 0
 1
 0
@@ -55,6 +57,10 @@ public class AGSchedule extends ScheduleTechnique {
         while(true){
             // note: there is entry and exist condition
             if(head == null){
+                for (MProcess process : processes) {
+                    System.out.print(process.getProcessName() + "->" + process.getRealTimeQuantum() + "\t");
+                }
+                System.out.println();
                 if(readyQueue.size() == 0 && !getFromProcesses()){
                     break;
                 }
@@ -74,6 +80,10 @@ public class AGSchedule extends ScheduleTechnique {
                         prev.setRealTimeQuantum(prev.getRealTimeQuantum() + Math.ceil(prev.getQuantum() / 2));
                         head.setQuantum(head.getRealTimeQuantum());
                         currentCondition = 0;
+                        for (MProcess process : processes) {
+                            System.out.print(process.getProcessName() + "->" + process.getRealTimeQuantum() + "\t");
+                        }
+                        System.out.println();
                     }
                 }
                 else if(currentCondition == 1){
@@ -88,14 +98,21 @@ public class AGSchedule extends ScheduleTechnique {
                         prev.setRealTimeQuantum(prev.getRealTimeQuantum() + prev.getQuantum());
                         head.setQuantum(head.getRealTimeQuantum());
                         currentCondition = 0;
+                        for (MProcess process : processes) {
+                            System.out.print(process.getProcessName() + "->" + process.getRealTimeQuantum() + "\t");
+                        }
+                        System.out.println();
                     }
                 }
             }
             if(executionOrder.size() == 0 || executionOrder.get(executionOrder.size() - 1) != head){
                 executionOrder.add(head);
             }
-            if(currentCondition < 2){
+            if(currentCondition == 0){
                 taken = Math.ceil(head.getRealTimeQuantum()*0.25);
+            }
+            else if(currentCondition == 1){
+                taken = Math.ceil(head.getRealTimeQuantum()*0.50) - Math.ceil(head.getRealTimeQuantum()*0.25);
             }
             else{
                 taken = 1;
@@ -104,7 +121,7 @@ public class AGSchedule extends ScheduleTechnique {
             if(head.getBurstTime() - taken <= 0){
                 time += head.getBurstTime();
                 head.setBurstTime(0);
-                head.setQuantum(0);
+                head.setRealTimeQuantum(0);
                 head.setWaitTime(time + 1 - head.getArrivalTime() - head.getRealTimeBurstTime());
                 head.setTurnAroundTime(time + 1 - head.getArrivalTime());
                 head = null;
@@ -179,14 +196,14 @@ public class AGSchedule extends ScheduleTechnique {
             averageTurnAroundTime+= process.getTurnAroundTime();
             System.out.println(process.getProcessName()+" "+process.getTurnAroundTime());
         }
-        System.out.println("Quantam history for each process:- ");
+/*        System.out.println("Quantam history for each process:- ");
         for(var process: processes){
             process.getQuantamList().remove(0);
             for (Double x:process.getQuantamList()) {
                 System.out.print(x + " ");
             }
             System.out.println();
-        }
+        }*/
         System.out.println("Average waiting time:- ");
         System.out.println(averageWaitingTime/processes.size());
         System.out.println("Average turn around time:- ");
