@@ -1,30 +1,14 @@
 package org.example.process;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class MProcess {
-    private String processName;
-    private int arrivalTime;
+    private String processName; // Process Name
+    private double burstTime; // Burst Time
+    private double arrivalTime; // Arrival Time
     private int endTime;
-
-    @Override
-    public String toString() {
-        return "MProcess{" +
-                "processName='" + processName + '\'' +
-                ", arrivalTime=" + arrivalTime +
-                ", endTime=" + endTime +
-                ", burstTime=" + burstTime +
-                ", processPriority=" + processPriority +
-                ", inQueue=" + inQueue +
-                ", turnAroundTime=" + turnAroundTime +
-                ", waitTime=" + waitTime +
-                ", realTimeBurstTime=" + realTimeBurstTime +
-                ", quantum=" + quantum +
-                ", realTimeQuantum=" + realTimeQuantum +
-                '}';
-    }
-
-    public int getEndTime() {
-        return endTime;
-    }
+    private double processPriority;
 
     public void setEndTime(int endTime) {
         this.endTime = endTime;
@@ -33,7 +17,10 @@ public class MProcess {
     private int burstTime;
     private double processPriority;
     private boolean inQueue = false;
-
+    private double turnAroundTime;
+    private double waitTime;
+    private double realTimeBurstTime;
+    List<Double> quantamList;
     public boolean isInQueue() {
         return inQueue;
     }
@@ -43,16 +30,19 @@ public class MProcess {
     }
 
     // calculate
-    private double turnAroundTime;
-    private double waitTime;
-    public double realTimeBurstTime;
+    public MProcess(String processName, double arrivalTime, double burstTime, double processPriority, double quantam) {
+        this.processName = processName;
+        this.arrivalTime = arrivalTime;
+        this.realTimeBurstTime = 0;
+        this.burstTime = burstTime;
+        this.processPriority = processPriority;
+        quantamList = new ArrayList<>();
+        setQuantum(quantam);
+    }
 
-    private double quantum;
-    private double realTimeQuantum;
-
-
-
-
+    public void setEndTime(int next_second) {
+        endTime = next_second;
+    }
     public double getTurnAroundTime() {
         return turnAroundTime;
     }
@@ -76,14 +66,16 @@ public class MProcess {
     public void setRealTimeBurstTime(double realTimeBurstTime) {
         this.realTimeBurstTime = realTimeBurstTime;
     }
-
-    public MProcess(String processName, int arrivalTime, int burstTime, double processPriority) {
-        this.processName = processName;
-        this.arrivalTime = arrivalTime;
-        this.burstTime = burstTime;
-        this.processPriority = processPriority;
+    @Override
+    public String toString() {
+        return "MProcess{" +
+                "processName='" + processName + '\'' +
+                ", arrivalTime=" + arrivalTime +
+                ", burstTime=" + burstTime +
+                ", processPriority=" + processPriority +
+                ", realTimeQuantum=" + getRealTimeQuantum() +
+                '}';
     }
-    public MProcess(){}
 
 
     public String getProcessName() {
@@ -119,18 +111,22 @@ public class MProcess {
     }
 
     public double getQuantum() {
-        return quantum;
+        return quantamList.get(quantamList.size() - 1);
     }
 
     public void setQuantum(double quantum) {
-        this.quantum = quantum;
+        quantamList.add(quantum);
     }
 
     public double getRealTimeQuantum() {
-        return realTimeQuantum;
+        return quantamList.get(0);
     }
 
-    public void setRealTimeQuantum(double realTimeQuantum) {
-        this.realTimeQuantum = realTimeQuantum;
+    public void setRealTimeQuantum(double quantum) {
+        quantamList.set(0, quantum);
+    }
+
+    public List<Double> getQuantamList() {
+        return quantamList;
     }
 }
