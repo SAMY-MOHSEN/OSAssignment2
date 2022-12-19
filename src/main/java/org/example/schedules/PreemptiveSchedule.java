@@ -48,7 +48,7 @@ public class PreemptiveSchedule extends ScheduleTechnique{
             int next_second = time;
 
             addToReadyQueue(time);
-//            if(readyQueue.size()==0)continue;
+            if(readyQueue.size()==0)continue;
             head = readyQueue.get(0);
             head.realTimeBurstTime++;
             if(head.realTimeBurstTime >= head.getBurstTime()){

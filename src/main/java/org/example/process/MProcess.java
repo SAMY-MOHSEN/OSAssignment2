@@ -47,7 +47,7 @@ public class MProcess {
     private double waitTime;
     public double realTimeBurstTime;
 
-    private double quantum;
+    private static double quantum;
     private double realTimeQuantum;
 
 
@@ -118,7 +118,7 @@ public class MProcess {
         this.processPriority = processPriority;
     }
 
-    public double getQuantum() {
+    public static double getQuantum() {
         return quantum;
     }
 
