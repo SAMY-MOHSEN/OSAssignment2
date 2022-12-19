@@ -27,9 +27,9 @@ public class Main{
             System.out.print("Enter process #"+i+" Name: ");
             String name = scanner.nextLine();
             System.out.print("Enter process #"+i+" Arrival Time: ");
-            double arrivalTime = scanner.nextDouble();
+            int arrivalTime = scanner.nextInt();
             System.out.print("Enter process #"+i+" Burst Time: ");
-            double burstTime = scanner.nextDouble();
+            int burstTime = scanner.nextInt();
             System.out.print("Enter process #"+i+" Process Priority: ");
             double priorityTime = scanner.nextDouble();
             System.out.print("Enter Time Quantum: ");
@@ -41,6 +41,7 @@ public class Main{
         }
         while(true){
             ScheduleTechnique technique = null;
+            System.out.println("...................");
             System.out.println("Enter your choice: ");
             System.out.println("[1]Shortest Job First(SJF)");
             System.out.println("[2]Round Robin(RR)");

@@ -10,6 +10,12 @@ public class MProcess {
     private int endTime;
     private double processPriority;
 
+    public void setEndTime(int endTime) {
+        this.endTime = endTime;
+    }
+
+    private int burstTime;
+    private double processPriority;
     private boolean inQueue = false;
     private double turnAroundTime;
     private double waitTime;
@@ -60,7 +66,6 @@ public class MProcess {
     public void setRealTimeBurstTime(double realTimeBurstTime) {
         this.realTimeBurstTime = realTimeBurstTime;
     }
-
     @Override
     public String toString() {
         return "MProcess{" +
@@ -81,19 +86,19 @@ public class MProcess {
         this.processName = processName;
     }
 
-    public double getArrivalTime() {
+    public int getArrivalTime() {
         return arrivalTime;
     }
 
-    public void setArrivalTime(double arrivalTime) {
+    public void setArrivalTime(int arrivalTime) {
         this.arrivalTime = arrivalTime;
     }
 
-    public double getBurstTime() {
+    public int getBurstTime() {
         return burstTime;
     }
 
-    public void setBurstTime(double burstTime) {
+    public void setBurstTime(int burstTime) {
         this.burstTime = burstTime;
     }
 
