@@ -44,6 +44,9 @@ public class AGSchedule extends ScheduleTechnique {
         super();
         this.contextSwitching = contextSwitching;
         this.processes = processes;
+        for (MProcess process : processes) {
+            process.setRealTimeBurstTime(process.getBurstTime());
+        }
     }
     @Override
     public void run() {

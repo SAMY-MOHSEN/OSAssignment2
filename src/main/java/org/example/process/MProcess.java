@@ -29,7 +29,6 @@ public class MProcess {
         this.arrivalTime = arrivalTime;
         this.realTimeBurstTime = 0;
         this.burstTime = burstTime;
-        this.realTimeBurstTime = burstTime;
         this.processPriority = processPriority;
         quantamList = new ArrayList<>();
         setQuantum(quantam);
